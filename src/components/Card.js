@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 
 class Card extends React.Component {
   render() {
@@ -46,7 +45,7 @@ Card.defaultProps = {
   cardAttr1: 'cardAttr1 Default',
   cardAttr2: 'cardAttr2 Default',
   cardAttr3: 'cardAttr3 Default',
-  cardImage: 'cardImage Default',
+  cardImage: '',
   cardRare: 'cardRare Default',
   cardTrunfo: false,
 };

@@ -12,6 +12,7 @@ class Form extends React.Component {
         <label htmlFor="name">
           <input
             type="text"
+            name="cardName"
             data-testid="name-input"
             id="name"
             value={ cardName }
@@ -22,6 +23,7 @@ class Form extends React.Component {
         <label htmlFor="description">
           <input
             type="textarea"
+            name="cardDescription"
             data-testid="description-input"
             id="description"
             value={ cardDescription }
@@ -32,6 +34,7 @@ class Form extends React.Component {
         <label htmlFor="attr1">
           <input
             type="number"
+            name="cardAttr1"
             data-testid="attr1-input"
             id="attr1"
             value={ cardAttr1 }
@@ -42,6 +45,7 @@ class Form extends React.Component {
         <label htmlFor="attr2">
           <input
             type="number"
+            name="cardAttr2"
             data-testid="attr2-input"
             id="attr2"
             value={ cardAttr2 }
@@ -52,6 +56,7 @@ class Form extends React.Component {
         <label htmlFor="attr3">
           <input
             type="number"
+            name="cardAttr3"
             data-testid="attr3-input"
             id="attr3"
             value={ cardAttr3 }
@@ -62,6 +67,7 @@ class Form extends React.Component {
         <label htmlFor="imageInput">
           <input
             type="text"
+            name="cardImage"
             data-testid="image-input"
             id="imageInput"
             value={ cardImage }
@@ -72,6 +78,7 @@ class Form extends React.Component {
         <label htmlFor="rarity">
           <select
             id="rarity"
+            name="cardRare"
             data-testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
@@ -85,6 +92,7 @@ class Form extends React.Component {
         <input
           type="checkbox"
           data-testid="trunfo-input"
+          name="cardTrunfo"
           id="trunfo"
           checked={ cardTrunfo }
           onChange={ onInputChange }
@@ -129,7 +137,7 @@ Form.defaultProps = {
   cardRare: 'cardRare Default',
   cardTrunfo: false,
   hasTrunfo: false,
-  isSaveButtonDisabled: false,
+  isSaveButtonDisabled: true,
   onInputChange: () => {},
   onSaveButtonClick: () => {},
 };
