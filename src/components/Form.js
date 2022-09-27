@@ -113,33 +113,24 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  cardName: PropTypes.string,
-  cardDescription: PropTypes.string,
-  cardAttr1: PropTypes.string,
-  cardAttr2: PropTypes.string,
-  cardAttr3: PropTypes.string,
-  cardImage: PropTypes.string,
-  cardRare: PropTypes.string,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool,
   hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
-  onInputChange: PropTypes.func,
-  onSaveButtonClick: PropTypes.func,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 
 Form.defaultProps = {
-  cardName: 'cardName Default',
-  cardDescription: 'cardDescription Default',
-  cardAttr1: 'cardAttr1 Default',
-  cardAttr2: 'cardAttr2 Default',
-  cardAttr3: 'cardAttr3 Default',
-  cardImage: 'cardImage Default',
-  cardRare: 'cardRare Default',
   cardTrunfo: false,
   hasTrunfo: false,
   isSaveButtonDisabled: true,
-  onInputChange: () => {},
-  onSaveButtonClick: () => {},
 };
 
 export default Form;
