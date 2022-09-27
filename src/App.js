@@ -19,6 +19,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      cardDeck: [],
     };
   }
 
@@ -61,9 +62,8 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo } = this.state;
+      cardAttr3, cardImage, cardRare, cardTrunfo, cardDeck } = this.state;
 
-    const arr = [];
     const obj = {
       cardName,
       cardImage,
@@ -74,8 +74,6 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
     };
-
-    arr.push(obj);
 
     this.setState({
       cardName: '',
@@ -88,13 +86,16 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       hasTrunfo: obj.cardTrunfo,
-      cardDeck: arr,
+    });
+
+    this.setState({
+      cardDeck: [...cardDeck, obj],
     });
   };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled } = this.state;
+      cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled, cardDeck } = this.state;
 
     return (
       <div>
@@ -126,6 +127,8 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
+        <h3> SEU BARALHO </h3>
+        {/* {cardDeck.map((card))} */}
       </div>
     );
   }
