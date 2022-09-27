@@ -50,15 +50,42 @@ class App extends React.Component {
       rare: cardRare === 'normal' || cardRare === 'raro' || cardRare === 'muito raro',
     };
     const checks = Object.values(validation);
-    const expectedLength = 8;
-    return checks.length === expectedLength
-      ? !checks.every((check) => check === true) : true;
+    return !checks.every((check) => check === true);
   };
 
   enableSaveButton = () => {
     const validation = this.buttonValidation();
 
     this.setState({ isSaveButtonDisabled: validation });
+  };
+
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardAttr1, cardAttr2,
+      cardAttr3, cardImage, cardRare, cardTrunfo } = this.state;
+
+    const arr = [];
+    const obj = {
+      cardName,
+      cardImage,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardRare,
+      cardTrunfo,
+    };
+    arr.push(obj);
+    this.setState({
+      savedCards: arr,
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+    });
   };
 
   render() {
@@ -80,6 +107,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           onInputChange={ this.handleChange }
