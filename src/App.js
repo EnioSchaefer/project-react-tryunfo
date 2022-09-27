@@ -78,7 +78,6 @@ class App extends React.Component {
     arr.push(obj);
 
     this.setState({
-      savedCards: arr,
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -88,6 +87,8 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      hasTrunfo: obj.cardTrunfo,
+      cardDeck: arr,
     });
   };
 
