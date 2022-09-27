@@ -128,7 +128,20 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <h3> SEU BARALHO </h3>
-        {/* {cardDeck.map((card))} */}
+        {cardDeck.map((card) => (
+          <Card
+            key={ card.cardName }
+            cardName={ card.cardName }
+            cardDescription={ card.cardDescription }
+            cardAttr1={ card.cardAttr1 }
+            cardAttr2={ card.cardAttr2 }
+            cardAttr3={ card.cardAttr3 }
+            cardImage={ card.cardImage }
+            cardRare={ card.cardRare }
+            cardTrunfo={ card.cardTrunfo }
+            hasTrunfo={ card.hasTrunfo }
+          />
+        ))}
       </div>
     );
   }

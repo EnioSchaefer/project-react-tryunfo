@@ -7,7 +7,7 @@ class Card extends React.Component {
       cardAttr3, cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
-      <>
+      <div>
         <span data-testid="name-card">{ cardName }</span>
 
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
@@ -23,7 +23,7 @@ class Card extends React.Component {
         <span data-testid="rare-card">{ cardRare }</span>
 
         {cardTrunfo && <span data-testid="trunfo-card">Super Trunfo</span>}
-      </>
+      </div>
     );
   }
 }
