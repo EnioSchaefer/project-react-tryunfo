@@ -74,7 +74,9 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
     };
+
     arr.push(obj);
+
     this.setState({
       savedCards: arr,
       cardName: '',
@@ -85,6 +87,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
+      isSaveButtonDisabled: true,
     });
   };
 
