@@ -24,9 +24,7 @@ class App extends React.Component {
   }
 
   handleChange({ target }) {
-    // PARA QUALQUER INPUT
     const { name } = target;
-    // PARA INPUT DE CHECKBOX
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
@@ -57,7 +55,9 @@ class App extends React.Component {
   enableSaveButton = () => {
     const validation = this.buttonValidation();
 
-    this.setState({ isSaveButtonDisabled: validation });
+    this.setState({
+      isSaveButtonDisabled: validation,
+    });
   };
 
   onSaveButtonClick = () => {
@@ -76,20 +76,19 @@ class App extends React.Component {
     };
 
     this.setState({
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-      isSaveButtonDisabled: true,
-      hasTrunfo: obj.cardTrunfo,
-    });
-
-    this.setState({
       cardDeck: [...cardDeck, obj],
+    }, () => {
+      this.setState({
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
+        cardImage: '',
+        cardRare: 'normal',
+        cardTrunfo: false,
+        isSaveButtonDisabled: true,
+      });
     });
   };
 
@@ -128,9 +127,9 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <h3> SEU BARALHO </h3>
-        {cardDeck.map((card) => (
+        {cardDeck.map((card, index) => (
           <Card
-            key={ card.cardName }
+            key={ `card${index}` }
             cardName={ card.cardName }
             cardDescription={ card.cardDescription }
             cardAttr1={ card.cardAttr1 }
